@@ -19,7 +19,7 @@ for i in `ls -a`; do
     fi
 
     if [ -d $i ]; then
-        ln -sf `pwd`/$i ~/$i
+        ln -sfrT `pwd`/$i ~/$i
     fi
 
 done
