@@ -1,6 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =4
-let g:netrw_dirhist_1='/home/mbrumlow/.irssi'
-let g:netrw_dirhist_2='/home/mbrumlow/Work/ServerBackup/.gradle/2.2/taskArtifacts'
-let g:netrw_dirhist_3='/home/mbrumlow/Work/go/src/github.com/ContinuumLLC/BBS'
-let g:netrw_dirhist_4='/home/mbrumlow/Work/go/src/github.com/ContinuumLLC/BBS/r1ctl'
