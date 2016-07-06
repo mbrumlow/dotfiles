@@ -10,12 +10,12 @@
 #-----------------------------------------------------------------------------
 export GOROOT=/usr/local/go
 export GOPATH=~/go
-export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
+export PATH=$PATH:$GOROOT/bin:$GOPATH/bin:~/bin
 
 #-----------------------------------------------------------------------------
 # JAVA settings
 #-----------------------------------------------------------------------------
-export JAVA_HOME=/usr/local/java
+export JAVA_HOME=/opt/java
 export JDK7_HOME=$JAVA_HOME
 export PATH=$PATH:$JAVA_HOME/bin
 
@@ -58,6 +58,12 @@ alias mosh='TERM=xterm-color mosh'
 #-----------------------------------------------------------------------------
 # PS1
 #-----------------------------------------------------------------------------
+
+git_branch() {
+    git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
+}
+
+
 case "$TERM" in
         st-256color) color_prompt=yes;;
         rxvt) color_prompt=yes;;
@@ -73,9 +79,9 @@ esac
 
 if [ "$color_prompt" = yes ]; then
         if [ `whoami` = "root" ]; then
-			PS1='\[\e[1;37m\][\[\e[0;31m\]\h\[\e[0m\]:\w\[\e[1;37m\]]\[\e[0m\] >> '
+            PS1="\[\e[1;37m\][\[\e[0;31m\]\h\[\e[0m\]:\w\[\e[1;37m\]]\[\e[0m\]\$(git_branch) >> "
         else
-			PS1='\[\e[1;37m\][\[\e[0;33m\]\h\[\e[0m\]:\w\[\e[1;37m\]]\[\e[0m\] >> '
+            PS1="\[\e[1;37m\][\[\e[0;33m\]\h\[\e[0m\]:\w\[\e[1;37m\]]\[\e[0m\]\$(git_branch) >> "
         fi
 
 else
