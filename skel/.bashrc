@@ -10,7 +10,7 @@
 #-----------------------------------------------------------------------------
 export GOROOT=/usr/local/go
 export GOPATH=~/go
-export PATH=$PATH:$GOROOT/bin:$GOPATH/bin:~/bin
+export PATH=$PATH:$GOROOT/bin:$GOPATH/bin:~/bin:~/scripts
 
 #-----------------------------------------------------------------------------
 # JAVA settings
