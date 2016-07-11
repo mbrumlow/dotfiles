@@ -37,6 +37,7 @@ export HISTFILE=~/.bash_history
 export HISTCONTROL=ignoreboth
 export LANG="en_US.UTF-8"
 export PAGER=less
+export SYSTEMD_PAGER=less
 export EDITOR=vim
 export HISTSIZE=1000
 
