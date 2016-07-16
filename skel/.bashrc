@@ -80,9 +80,9 @@ esac
 
 if [ "$color_prompt" = yes ]; then
         if [ `whoami` = "root" ]; then
-            PS1="\[\e[1;37m\][\[\e[0;31m\]\h\[\e[0m\]:\w\[\e[1;37m\]]\[\e[0m\]\$(git_branch) >> "
+            PS1="\[\e[0;31m\]\h\[\e[0m\]:\w\[\e[0m\]\$(git_branch) \n\$ "
         else
-            PS1="\[\e[1;37m\][\[\e[0;33m\]\h\[\e[0m\]:\w\[\e[1;37m\]]\[\e[0m\]\$(git_branch) >> "
+            PS1="\[\e[0;33m\]\h\[\e[0m\]:\w\[\e[0m\]\$(git_branch) \n\$ "
         fi
 
 else
