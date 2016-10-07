@@ -1,3 +1,4 @@
+
 call plug#begin('~/.vim/plugged')
 Plug 'fatih/vim-go'
 Plug 'scrooloose/nerdtree'
@@ -5,6 +6,7 @@ Plug 'rust-lang/rust.vim'
 Plug 'altercation/vim-colors-solarized'
 Plug 'majutsushi/tagbar'
 Plug 'vim-scripts/LustyExplorer'
+Plug 'tpope/vim-fugitive'
 call plug#end()
 
 " Color settings.
