@@ -1,4 +1,3 @@
-
 call plug#begin('~/.vim/plugged')
 Plug 'fatih/vim-go'
 Plug 'scrooloose/nerdtree'
@@ -116,4 +115,9 @@ autocmd BufWritePre *.h,*.c,*.java,*.go,*.cpp,*.cc :call <SID>StripTrailingWhite
 autocmd BufWritePre * if &ft =~ 'sh\|perl\|python' | :call <SID>StripTrailingWhitespaces() | endif
 autocmd FileType sh,perl,python  :call <SID>StripTrailingWhitespaces()
 
+set backupdir=~/.vim/backup
+set directory=~/.vim/swap
+
+" Shell like auto complete on tab
+set wildmode=longest,list
 
