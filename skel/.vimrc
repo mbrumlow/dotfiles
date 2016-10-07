@@ -1,15 +1,25 @@
+call plug#begin('~/.vim/plugged')
+Plug 'fatih/vim-go'
+Plug 'scrooloose/nerdtree'
+Plug 'rust-lang/rust.vim'
+Plug 'altercation/vim-colors-solarized'
+Plug 'majutsushi/tagbar'
+Plug 'vim-scripts/LustyExplorer'
+call plug#end()
 
-"set t_Co=256
-"let g:solarized_termcolors=256
-"set t_ut=
-
-execute pathogen#infect()
-
+" Color settings.
+if !has("gui_running")
+    "set t_Co=256
+    set term=xterm-256color
+endif
 
 syntax enable
 set background=dark
 colorscheme solarized
 
+highlight Comment cterm=italic
+
+" This will sync the clipboard across all vim instances.
 set clipboard=unnamedplus
 
 setlocal spell spelllang=en_us
@@ -45,16 +55,16 @@ set nogdefault
 set incsearch
 set showmatch
 set hlsearch
-set noedcompatible 
+set noedcompatible
 
-map <tab> <C-w>w
+"map <tab> <C-w>w
 
 filetype off
 filetype plugin indent on
 
 let mapleader='\'
 
-nnoremap <silent> <leader>t :NERDTreeToggle <CR> 
+nnoremap <silent> <leader>t :NERDTreeToggle <CR>
 nnoremap <silent> <leader>b :LustyBufferExplorer <CR>
 nnoremap <silent> <leader>g :LustyBufferGrep <CR>
 nnoremap <silent> <leader>n :set nonumber! <CR>
@@ -67,14 +77,26 @@ nnoremap <silent> . :vertical resize +5<cr>
 nnoremap <silent> > :resize +5<cr>
 nnoremap <silent> < :resize -5<cr>
 
+noremap <Up> <nop>
+noremap <Down> <nop>
+noremap <Left> <nop>
+noremap <Right> <nop>
+
+imap <up> <nop>
+imap <down> <nop>
+imap <left> <nop>
+imap <right> <nop>
+
 "vim-go stuff
 let g:go_fmt_command = "goimports"
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
-let g:go_highlight_structs = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_types = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_build_constraints = 1
 
-
-" Remove trailing whtie space. 
+" Remove trailing whtie space.
 function! <SID>StripTrailingWhitespaces()
     let l = line(".")
     let c = col(".")
@@ -82,10 +104,14 @@ function! <SID>StripTrailingWhitespaces()
     call cursor(l, c)
 endfun
 
+fun! TrimWhitespace()
+    let l:save = winsaveview()
+    %s/\s\+$//e
+    call winrestview(l:save)
+endfun
+
 autocmd BufWritePre *.h,*.c,*.java,*.go,*.cpp,*.cc :call <SID>StripTrailingWhitespaces()
 autocmd BufWritePre * if &ft =~ 'sh\|perl\|python' | :call <SID>StripTrailingWhitespaces() | endif
 autocmd FileType sh,perl,python  :call <SID>StripTrailingWhitespaces()
-
-
 
 
