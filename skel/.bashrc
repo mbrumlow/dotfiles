@@ -64,15 +64,16 @@ git_branch() {
     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
 }
 
-
 case "$TERM" in
         st-256color) color_prompt=yes;;
+        tmux) color_prompt=yes;;
         rxvt) color_prompt=yes;;
         linux) color_prompt=yes;;
         xterm) color_prompt=yes;;
         screen) color_prompt=yes;;
         xterm-color) color_prompt=yes;;
         rxvt-unicode) color_prompt=yes;;
+        tmux-256color) color_prompt=yes;;
         xterm-256color) color_prompt=yes;;
         screen-256color) color_prompt=yes;;
         rxvt-unicode-256color) color_prompt=yes;;
