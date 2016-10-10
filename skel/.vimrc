@@ -1,3 +1,6 @@
+
+filetype off
+
 call plug#begin('~/.vim/plugged')
 Plug 'fatih/vim-go'
 Plug 'scrooloose/nerdtree'
@@ -8,16 +11,61 @@ Plug 'vim-scripts/LustyExplorer'
 Plug 'tpope/vim-fugitive'
 call plug#end()
 
+set nocompatible
+set noedcompatible
+
+set encoding=utf-8
+set modelines=0
+set autoindent
+set showmode
+set showcmd
+set hidden
+set novb
+set ttyfast
+set ruler
+set backspace=indent,eol,start
+set laststatus=2
+set history=1000
+set undofile
+set undoreload=10000
+set shell=/bin/bash
+set lazyredraw
+set matchtime=3
+set showbreak=↪
+set splitbelow
+set splitright
+set fillchars=diff:⣿,vert:│
+set shiftround
+set title
+set linebreak
+set colorcolumn=+1
+set spell!
+
+" Resize splits when the window is resized
+au VimResized * :wincmd =
+
+set tabstop=8
+set shiftwidth=4
+set softtabstop=4
+set expandtab
+set wrap
+set textwidth=80
+set formatoptions=qrn1
+set colorcolumn=+1
+
+set backupdir=~/.vim/backup
+set directory=~/.vim/swap
+set noswapfile
+
 " Color settings.
 if !has("gui_running")
     "set t_Co=256
-    set term=xterm-256color
+"    set term=xterm-256color
 endif
 
 syntax enable
 set background=dark
 colorscheme solarized
-
 highlight Comment cterm=italic
 
 " This will sync the clipboard across all vim instances.
@@ -25,42 +73,17 @@ set clipboard=unnamedplus
 
 setlocal spell spelllang=en_us
 
-set hidden
-set spell!
-
 set viminfo='1000,f1,\"500,:100,/100
 
-set nocompatible
-set ts=4
-set shiftwidth=4
-set showmatch
-set expandtab
-
-set colorcolumn=80
-set backspace=indent,eol,start
-
-set vb t_vb=
-set number
-
-set novb
-
-set autoindent
-set encoding=utf-8
-set ttyfast
-set ruler
-set laststatus=2
-
+" Search stuff. 
 set ignorecase
 set smartcase
 set nogdefault
 set incsearch
 set showmatch
 set hlsearch
-set noedcompatible
 
-"map <tab> <C-w>w
 
-filetype off
 filetype plugin indent on
 
 let mapleader='\'
@@ -114,9 +137,6 @@ endfun
 autocmd BufWritePre *.h,*.c,*.java,*.go,*.cpp,*.cc :call <SID>StripTrailingWhitespaces()
 autocmd BufWritePre * if &ft =~ 'sh\|perl\|python' | :call <SID>StripTrailingWhitespaces() | endif
 autocmd FileType sh,perl,python  :call <SID>StripTrailingWhitespaces()
-
-set backupdir=~/.vim/backup
-set directory=~/.vim/swap
 
 " Shell like auto complete on tab
 set wildmode=longest,list
