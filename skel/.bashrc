@@ -44,17 +44,6 @@ export HISTSIZE=1000
 export LC_CTYPE=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 
-#--------------------------------------------------------------------------------
-# GREP settings
-#--------------------------------------------------------------------------------
-GREP_OPTIONS=
-if grep --help | grep -- --exclude-dir &>/dev/null; then
-    for pattern in .cvs .git .hg .svn; do
-        GREP_OPTIONS="$GREP_OPTIONS --exclude-dir=$pattern"
-    done
-fi
-export GREP_OPTIONS
-
 #-----------------------------------------------------------------------------
 # ALAIS
 #-----------------------------------------------------------------------------

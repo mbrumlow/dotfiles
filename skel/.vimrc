@@ -9,11 +9,13 @@ Plug 'altercation/vim-colors-solarized'
 Plug 'majutsushi/tagbar'
 Plug 'vim-scripts/LustyExplorer'
 Plug 'tpope/vim-fugitive'
+Plug 'scrooloose/nerdcommenter'
 call plug#end()
 
 set nocompatible
 set noedcompatible
 
+set number
 set encoding=utf-8
 set modelines=0
 set autoindent
@@ -44,22 +46,22 @@ set spell!
 " Resize splits when the window is resized
 au VimResized * :wincmd =
 
-set tabstop=8
+set tabstop=4
 set shiftwidth=4
 set softtabstop=4
-set expandtab
+set noexpandtab
 set wrap
 set textwidth=80
 set formatoptions=qrn1
 set colorcolumn=+1
 
 set backupdir=~/.vim/backup
-set directory=~/.vim/swap
+set undodir=~/.vim/undo
 set noswapfile
 
 " Color settings.
 if !has("gui_running")
-    "set t_Co=256
+set t_Co=256
 "    set term=xterm-256color
 endif
 
