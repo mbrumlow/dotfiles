@@ -49,7 +49,7 @@ export LC_ALL=en_US.UTF-8
 #-----------------------------------------------------------------------------
 
 alias vi='vim'
-alias grep='grep --color'
+alias grep='grep --color --exclude-dir=".git"'
 alias mux='tmux -2 -u attach || tmux -2 -u new'
 alias ls='ls --color=auto'
 alias sudo='sudo -s'
