@@ -136,7 +136,7 @@ fun! TrimWhitespace()
     call winrestview(l:save)
 endfun
 
-autocmd BufWritePre *.h,*.c,*.java,*.go,*.cpp,*.cc :call <SID>StripTrailingWhitespaces()
+autocmd BufWritePre *.h,*.c,*.java,*.go,*.cpp,*.cc,*.rs :call <SID>StripTrailingWhitespaces()
 autocmd BufWritePre * if &ft =~ 'sh\|perl\|python' | :call <SID>StripTrailingWhitespaces() | endif
 autocmd FileType sh,perl,python  :call <SID>StripTrailingWhitespaces()
 

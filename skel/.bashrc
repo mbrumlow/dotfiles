@@ -53,8 +53,8 @@ alias grep='grep --color --exclude-dir=".git"'
 alias mux='tmux -2 -u attach || tmux -2 -u new'
 alias ls='ls --color=auto'
 alias sudo='sudo -s'
-alias ssh='TERM=xterm-color ssh'
-alias mosh='TERM=xterm-color mosh'
+#alias ssh='TERM=xterm-color ssh'
+#alias mosh='TERM=xterm-color mosh'
 
 #-----------------------------------------------------------------------------
 # PS1
