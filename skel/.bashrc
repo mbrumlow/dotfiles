@@ -51,7 +51,7 @@ export LC_ALL=en_US.UTF-8
 
 alias vi='vim'
 alias grep='grep --color --exclude-dir=".git"'
-alias mux='tmux -2 -u attach || tmux -2 -u new'
+alias mux='TERM=xterm-256color tmux -2 -u attach || TERM=xterm-256color tmux -2 -u new'
 alias ls='ls --color=auto'
 alias sudo='sudo -s'
 alias ssh='TERM=xterm-color ssh'
@@ -98,9 +98,8 @@ fi
 #-----------------------------------------------------------------------------
 # Terminix settings
 #-----------------------------------------------------------------------------
-
 if [[ $TERMINIX_ID ]]; then
-	source /etc/profile.d/vte.sh
+	        source /etc/profile.d/vte.sh
 fi
 
 #-----------------------------------------------------------------------------
