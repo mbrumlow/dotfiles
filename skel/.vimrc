@@ -10,6 +10,7 @@ Plug 'majutsushi/tagbar'
 Plug 'vim-scripts/LustyExplorer'
 Plug 'tpope/vim-fugitive'
 Plug 'scrooloose/nerdcommenter'
+Plug 'maksimr/vim-jsbeautify'
 call plug#end()
 
 set nocompatible
@@ -52,7 +53,7 @@ set softtabstop=4
 set noexpandtab
 set wrap
 set textwidth=80
-set formatoptions=qrn1
+set formatoptions=crn1
 set colorcolumn=+1
 
 set backupdir=~/.vim/backup
