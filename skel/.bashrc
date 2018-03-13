@@ -2,6 +2,11 @@
 # ~/.bashrc
 #
 
+#if [ $(tty) == "/dev/tty1" ]; then
+#	sway -d 2> ~/sway.log
+#	exit 0
+#fi
+
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
@@ -61,7 +66,7 @@ alias ls='ls --color=auto'
 alias sudo='sudo -s'
 alias ssh='TERM=xterm-color ssh'
 alias mosh='TERM=xterm-color mosh'
-
+alias mail='~/.mutt/mail.sh'
 #-----------------------------------------------------------------------------
 # PS1
 #-----------------------------------------------------------------------------
@@ -103,9 +108,9 @@ fi
 #-----------------------------------------------------------------------------
 # Terminix settings
 #-----------------------------------------------------------------------------
-if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
-	        source /etc/profile.d/vte.sh
-fi
+#if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
+#	        source /etc/profile.d/vte.sh
+#fi
 
 #-----------------------------------------------------------------------------
 # Host overrides
@@ -114,3 +119,4 @@ if [ -f ~/.bash_`hostname` ]; then
 . ~/.bash_`hostname`
 fi
 
+source $HOME/.cargo/env

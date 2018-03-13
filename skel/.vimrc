@@ -1,5 +1,5 @@
 
-filetype off
+filetype on
 
 call plug#begin('~/.vim/plugged')
 Plug 'fatih/vim-go'
@@ -11,7 +11,13 @@ Plug 'vim-scripts/LustyExplorer'
 Plug 'tpope/vim-fugitive'
 Plug 'scrooloose/nerdcommenter'
 Plug 'maksimr/vim-jsbeautify'
+Plug 'pangloss/vim-javascript'
+Plug 'polpo/vim-html-js-indent'
+Plug 'xolox/vim-misc'
+Plug 'xolox/vim-notes'
 call plug#end()
+
+let g:syntastic_enable_async = 1
 
 set nocompatible
 set noedcompatible
@@ -66,10 +72,17 @@ set t_Co=256
 "    set term=xterm-256color
 endif
 
+set t_ZH=[3m
+set t_ZR=[23m
+
 syntax enable
 set background=dark
 colorscheme solarized
 highlight Comment cterm=italic
+
+hi clear SpellBad
+hi SpellBad cterm=underline
+
 
 " This will sync the clipboard across all vim instances.
 set clipboard=unnamedplus
@@ -144,3 +157,8 @@ autocmd FileType sh,perl,python  :call <SID>StripTrailingWhitespaces()
 " Shell like auto complete on tab
 set wildmode=longest,list
 
+hi StatusLine ctermbg=128 ctermfg=51
+
+:let g:notes_directories = ['~/Documents/Notes']
+:let g:notes_suffix = '.txt'
+:let g:notes_shadowdir = '~/Documents/Notes'
