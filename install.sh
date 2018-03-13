@@ -19,7 +19,23 @@ for i in `ls -a`; do
     fi
 
     if [ -d $i ]; then
-        ln -sfrT `pwd`/$i ~/$i
+		if [ $i == ".config" ]; then
+			for z in `ls -a $i`; do
+				if [ $z == "." ]; then
+					continue
+				fi
+				if [ $z == ".." ]; then
+					continue
+				fi
+				echo "Installing $i/$z"
+				if [ -d $i/$z ]; then
+					ln -sfrT `pwd`/$i/$z ~/$i/$z
+
+				fi
+			done
+		else
+			ln -sfrT `pwd`/$i ~/$i
+		fi
     fi
 
 done
